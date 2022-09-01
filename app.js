@@ -13,6 +13,9 @@ app.event('member_left_channel', async ({ event, client, logger }) => {
   try {
     // Call chat.postMessage with the built-in client
     const result = await client.chat.postMessage({
+      as_user: false,
+      username: "Jess Events Test App",
+      icon_url: "https://files.slack.com/files-pri/T1DD3JH3K-F040NKYDBRB/events.png?pub_secret=8f447d6220",
       channel: welcomeChannelId,
       text: `<@${event.user.id}> has left! Goodbye!`
     });
