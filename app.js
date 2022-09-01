@@ -2,7 +2,7 @@ const { App } = require('@slack/bolt');
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
-  token: process.env.SLACK_USER_TOKEN,
+  token: process.env.SLACK_BOT_TOKEN,
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
 
@@ -13,9 +13,6 @@ app.event('member_left_channel', async ({ event, client, logger }) => {
   try {
     // Call chat.postMessage with the built-in client
     const result = await client.chat.postMessage({
-      as_user: false,
-      username: "Jess Events Test App",
-      icon_url: "https://files.slack.com/files-pri/T1DD3JH3K-F040NKYDBRB/events.png?pub_secret=8f447d6220",
       channel: welcomeChannelId,
       text: `<@${event.user.id}> has left! Goodbye!`
     });
