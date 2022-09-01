@@ -6,7 +6,7 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET
 });
 
-const welcomeChannelId = 'C02NCBQS1PV';
+const welcomeChannelId = 'C04148Y6R7T';
 
 // When a user joins the team, send a message in a predefined channel asking them to introduce themselves
 app.event('member_left_channel', async ({ event, client, logger }) => {
